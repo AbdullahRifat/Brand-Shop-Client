@@ -3,6 +3,7 @@ import Mainlayouts from "../Layout/Mainlayouts";
 import Home from "../Pages/Home/Home";
 import Addcarts from "../Components/Carts/Addcarts";
 import Mycarts from "../Components/Carts/Mycarts";
+import BrandPage from "../Pages/BrandPage/BrandPage";
 
 
 const MyRouter = createBrowserRouter([
@@ -35,6 +36,15 @@ const MyRouter = createBrowserRouter([
     
     
     },
+    {
+        
+        path: "/:brandsName",
+        element: <BrandPage></BrandPage>,
+        loader: ()=>fetch('/brands.json'),
+      
+      
+      
+      },
     ]
   }
 

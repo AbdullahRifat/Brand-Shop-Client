@@ -7,7 +7,7 @@ import Brands from "../../Components/Brands/Brands";
 
 const Home = () => {
     const brands = useLoaderData()
-    console.log(brands)
+ 
     return (
         <div className="mx-auto max-w-screen-xl">
            
