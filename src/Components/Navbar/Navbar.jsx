@@ -30,8 +30,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-4">
-          <AiOutlineMeh className="w-4"/>
-          <a className="btn">Login</a>
+           <AiOutlineMeh className="w-4"/>
+          <Link to={'/login'}>
+          <a className="btn">Login</a></Link>
         </div>
       </div>
     );

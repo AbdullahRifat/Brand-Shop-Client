@@ -9,6 +9,7 @@ import {
 import "./index.css";
 
 import MyRouter from "./Router/Router";
+import Authprovider from "./Firebase/Authprovider";
 
 
 
@@ -18,6 +19,9 @@ import MyRouter from "./Router/Router";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   <RouterProvider router={MyRouter} />
+    <Authprovider>
+    <RouterProvider router={MyRouter} />
+    </Authprovider>
+  
   </React.StrictMode>
 );
