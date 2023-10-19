@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Firebase/Authprovider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 
@@ -43,13 +44,28 @@ const Register = () => {
     const handleRegister = () => {
         // Check if all required fields are filled
         if (!email || !name || !photoUrl) {
-          alert("Please fill in all required fields");
+            Swal.fire({
+                position: 'top-center',
+                icon: 'info',
+                title: "Please fill in all required fields",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+          
           return; // Exit the function, no further processing
         }
         
         // Check if the password meets the specified requirements
         if (!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\]).{6,}$/.test(password)) {
-          alert("Password doesn't meet the requirements");
+          
+          Swal.fire({
+            position: 'top-center',
+            icon: 'error',
+            title: "Password doesn't meet the requirements",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          
           return; // Exit the function, no further processing
         }
         
@@ -65,11 +81,24 @@ const Register = () => {
           .then(() => {
             // Successfully updated profile, navigate to a specified location or default
             navigate(location?.state ? location.state : '/');
-            alert("Successfully logged in");
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Successfully logged in',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            
           })
           .catch((err) => {
             // Handle Firebase Authentication error and show it in a alertessage
-            alert(err.message); // Use the default Firebase error message
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: err.message,
+                showConfirmButton: false,
+                timer: 1500,
+              }); // Use the default Firebase error message
           });
       };
       

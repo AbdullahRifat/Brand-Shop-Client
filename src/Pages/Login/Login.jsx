@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Firebase/Authprovider";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -30,7 +31,13 @@ const Login = () => {
     const handleGoogleLogin = ()=>{
         googleSingIn()
         .then((res)=>navigate(location?.state? location.state : '/'))
-        .then(()=>alert("Successfully loged in"))
+        .then(()=> Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Successfully logged in',
+            showConfirmButton: false,
+            timer: 1500,
+          }))
         .catch(err=>console.log(err))
         
         
@@ -40,10 +47,24 @@ const Login = () => {
         if((email,password)){
             signIn(email,password)
             .then((res)=> navigate(location?.state? location.state : '/'))
-            .then(()=>alert("Successfully loged in"))
+            .then(()=> Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Successfully logged in',
+                showConfirmButton: false,
+                timer: 1500,
+              }))
             .catch(err=>setError(err))
     
 
+        }else{
+            Swal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: error.message,
+                showConfirmButton: false,
+                timer: 1500,
+              });
         }
     }
 

@@ -20,7 +20,7 @@ import Authprovider from "./Firebase/Authprovider";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Authprovider>
-    <RouterProvider router={MyRouter} />
+    <RouterProvider router={MyRouter} ></RouterProvider>
     </Authprovider>
   
   </React.StrictMode>

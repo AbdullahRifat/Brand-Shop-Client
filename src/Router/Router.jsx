@@ -6,6 +6,9 @@ import Mycarts from "../Components/Carts/Mycarts";
 import BrandPage from "../Pages/BrandPage/BrandPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PhoneDetails from "../Components/Phones/PhoneDetails";
+import Update from "../Components/Carts/Update";
+import PrivateRoute from "../Firebase/PrivateRoute";
 
 
 const MyRouter = createBrowserRouter([
@@ -33,16 +36,26 @@ const MyRouter = createBrowserRouter([
     {
         
       path: "/mycarts",
-      element: <Mycarts></Mycarts>,
+      element: <PrivateRoute><Mycarts></Mycarts></PrivateRoute>,
+      loader: ()=>fetch("http://localhost:5000/phones/mycart/")
     
     
     
     },
     {
         
-        path: "/:brandsName",
+        path: "/:brands",
         element: <BrandPage></BrandPage>,
         loader: ()=>fetch('/brands.json'),
+      
+      
+      
+      },
+      {
+        
+        path: "/:brands/:id",
+        element: <PrivateRoute><PhoneDetails></PhoneDetails></PrivateRoute>,
+        loader: ({params})=>fetch(`http://localhost:5000/brands/${params.id}`),
       
       
       
@@ -65,6 +78,12 @@ const MyRouter = createBrowserRouter([
       
       
       },
+      {
+        path: "/update/:id",
+        element:<Update></Update>,
+        loader: ({params})=>fetch(`http://localhost:5000/brands/${params.id}`),
+        
+      }
     ]
   }
 

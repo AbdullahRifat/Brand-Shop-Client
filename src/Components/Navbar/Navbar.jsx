@@ -1,8 +1,35 @@
+/* eslint-disable no-unused-vars */
+import { useContext, useState } from "react";
 import { AiOutlineMeh,AiOutlineShoppingCart,AiFillHome } from "react-icons/ai";
 import {BsCartPlus} from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Firebase/Authprovider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+
+  
+  const [logShow,setLogShow] = useState(false)
+
+  const navigate = useNavigate()
+  const location= useLocation()
+  const {logout} = useContext(AuthContext)
+
+   const handleLogout = ()=>{
+      logout().then((res)=> navigate(location?.state? location.state : '/'))
+      .then(()=> Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'logged out',
+        showConfirmButton: false,
+        timer: 1500,
+      }))
+      .catch(err=> console.log(err))
+   }
+   const { user } = useContext(AuthContext)
+
+
     return (
         <div className="navbar bg-base-100 max-w-screen-xl mx-auto">
         <div className="navbar-start">
@@ -29,11 +56,17 @@ const Navbar = () => {
               <Link to={'/mycarts'}> <li><a><AiOutlineShoppingCart/> My Cart</a></li></Link> 
           </ul>
         </div>
-        <div className="navbar-end gap-4">
-           <AiOutlineMeh className="w-4"/>
-          <Link to={'/login'}>
-          <a className="btn">Login</a></Link>
-        </div>
+       {
+         user?<div className="navbar-end gap-4">
+         {user?.photoURL?<img className="w-8 rounded-full" src={user.photoURL} alt="" />:<AiOutlineMeh className="w-4"/>}{user?.displayName? user.displayName:""}:
+        <Link to={'/'}>
+        <a className="btn" onClick={ handleLogout}>Logout</a></Link>
+      </div>:<div className="navbar-end gap-4">
+         <AiOutlineMeh className="w-4"/>:
+        <Link to={'/login'}>
+        <a className="btn">Login</a></Link>
+      </div>
+       }
       </div>
     );
 };

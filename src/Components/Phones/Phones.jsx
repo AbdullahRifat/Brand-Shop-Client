@@ -1,8 +1,37 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import Nothing from "../Carts/Nothing";
+import Phone from "./Phone";
 
 
-const Phones = () => {
+const Phones = ({phonesData}) => {
+    if(phonesData.length <= 0) {
+
+        return (
+            <div>
+                 
+
+            </div>
+        )
+    }
+
     return (
-        <div>
+        <div className="grid mx-auto gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {}
+          
+            {
+               phonesData.map((phone,idx)=>{
+             
+                      return (
+                        <div key={idx}>
+                         
+                         <br />
+                        <Phone phone={phone}></Phone>
+                       </div>
+                      )
+                           
+                })
+            }
             
         </div>
     );

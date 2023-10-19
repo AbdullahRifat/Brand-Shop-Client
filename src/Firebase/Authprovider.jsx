@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import { 
     getAuth, 
@@ -16,7 +17,7 @@ export const AuthContext = createContext(null)
 
 const Authprovider = ({children}) => {
     //for stating see more
-    const [show,setShow]= useState(false)
+    // const [show,setShow]= useState(false)
     const [isLoading, setIsLoading] = useState(true);
     //user state
     const [user,setUser] = useState()
@@ -61,7 +62,7 @@ const Authprovider = ({children}) => {
         signIn,
         user,
         logout,
-        show,
+        
         isLoading,
     }
     return (

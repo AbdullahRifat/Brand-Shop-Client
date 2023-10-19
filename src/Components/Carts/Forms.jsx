@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 
 
-function Forms() {
+function Forms({ onFormSubmit }) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -12,13 +13,14 @@ function Forms() {
       formObject[key] = value;
     });
 
-    console.log(formObject)
+    
+    onFormSubmit(formObject);
     // You can implement the logic to send the formObject to your server here
     // For example, using fetch or an Axios post request
     // Remember to handle validation and submission accordingly
 
     // After adding the product, you can clear the form fields by resetting the form
-    e.target.reset();
+    
   };
 
   return (
@@ -26,26 +28,7 @@ function Forms() {
       <h2 className="text-4xl font-bold text-center my-16">Add Product</h2>
       <div >
       <form className="grid mx-auto gap-8  "  id="productForm" onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="image">Image URL:</label>
-          <input className="w-full  bg-gray-200 border-collapse" 
-            type="text"
-            id="image"
-            name="image"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input className="w-full  bg-gray-200 border-collapse"
-         
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
-        </div>
-        <div>
+      <div>
           <label htmlFor="brand" className="mr-4">Brand Name:</label>
           <select className="bg-gray-200 border-collapse"
             id="brand"
@@ -68,6 +51,26 @@ function Forms() {
             required
           />
         </div>
+        <div>
+          <label htmlFor="image">Image URL:</label>
+          <input className="w-full  bg-gray-200 border-collapse" 
+            type="text"
+            id="image"
+            name="image"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input className="w-full  bg-gray-200 border-collapse"
+         
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
+        </div>
+        
         <div>
           <label htmlFor="price">Price:</label>
           <input className="w-full  bg-gray-200 border-collapse"
