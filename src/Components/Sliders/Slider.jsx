@@ -28,7 +28,7 @@ const Slider = ({filteredBrands}) => {
           if (mouseOver) return
           timeout = setTimeout(() => {
             slider.next()
-          }, 100)
+          }, 1000)
         }
         slider.on("created", () => {
           slider.container.addEventListener("mouseover", () => {

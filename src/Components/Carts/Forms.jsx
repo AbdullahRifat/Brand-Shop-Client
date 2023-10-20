@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
 
-function Forms({ onFormSubmit }) {
+function Forms({ onFormSubmit,phone,show }) {
+  console.log(show)
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -25,7 +27,7 @@ function Forms({ onFormSubmit }) {
 
   return (
     <div >
-      <h2 className="text-4xl font-bold text-center my-16">Add Product</h2>
+  
       <div >
         <form className="grid mx-auto gap-8  " id="productForm" onSubmit={handleFormSubmit}>
           <div>
@@ -33,6 +35,7 @@ function Forms({ onFormSubmit }) {
             <select className="bg-gray-200 border-collapse"
               id="brand"
               name="brand"
+              defaultValue={phone.brand}
             >
               <option value="samsung">Samsung</option>
               <option value="apple">Apple</option>
@@ -49,6 +52,7 @@ function Forms({ onFormSubmit }) {
               id="type"
               name="type"
               required
+              defaultValue={phone.type}
             />
           </div>
           <div>
@@ -58,6 +62,7 @@ function Forms({ onFormSubmit }) {
               id="image"
               name="image"
               required
+              defaultValue={phone.image}
             />
           </div>
           <div>
@@ -68,6 +73,7 @@ function Forms({ onFormSubmit }) {
               id="name"
               name="name"
               required
+              defaultValue={phone.name}
             />
           </div>
 
@@ -79,20 +85,25 @@ function Forms({ onFormSubmit }) {
               name="price"
               step="0.01"
               required
+              defaultValue={phone.price}
             />
           </div>
-          <div>
+          {
+            show&&<div>
             <label htmlFor="description">Short Description:</label>
             <textarea
               className="w-full bg-gray-200 bor"
               id="description"
               name="description"
               required
+              defaultValue={phone.description}
             ></textarea>
           </div>
+          }
           <div>
             <label htmlFor="rating">Rating:</label>
-            <select className="w-full bg-gray-200 border-collapse" id="rating" name="rating" required>
+            <select className="w-full bg-gray-200 border-collapse" id="rating" name="rating" required
+            defaultValue={phone.rating}>
               <option value="" disabled>Select a rating</option>
               <option value="1">1</option>
               <option value="2">2</option>

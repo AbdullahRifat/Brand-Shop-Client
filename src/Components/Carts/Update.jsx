@@ -8,7 +8,7 @@ const UpdateCarts = () => {
 
   const handleFormSubmit = (formData) => {
     // Send the form data to the server for updating (PUT request)
-    fetch(`http://localhost:5000/update/${_id}`, { // Change _id to modifiedID
+    fetch(`https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/update/${_id}`, { // Change _id to modifiedID
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -33,10 +33,12 @@ const UpdateCarts = () => {
         console.error('Error:', error);
       });
   };
+  const show = false
 
   return (
     <div className="mx-auto max-w-screen-xl">
-      <Forms onFormSubmit={handleFormSubmit} />
+          <h2 className="text-4xl font-bold text-center my-16">Update Product</h2>
+      <Forms onFormSubmit={handleFormSubmit} phone={phone} show={show} />
     </div>
   );
 };

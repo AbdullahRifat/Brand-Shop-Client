@@ -12,10 +12,10 @@ function Mainlayout() {
       document.querySelector('html').setAttribute('data-theme', theme);
     }, [theme]);
     return (
-      <label className=" fixed right-12 top-7 swap swap-rotate">
-        <input onClick={toggleTheme} type="checkbox" />
-        <div className="swap-on"><BsFillLightbulbOffFill/></div>
-        <div className="swap-off"><BsFillLightbulbFill/></div>
+      <label className="swap swap-rotate">
+        {/* <input onClick={toggleTheme} type="checkbox" /> */}
+        <a onClick={toggleTheme} className="swap-on flex justify-start items-center gap-4"><BsFillLightbulbOffFill/> Dark </a>
+        <a onClick={toggleTheme} className="swap-off flex justify-start items-center gap-4"><BsFillLightbulbFill/> Light</a>
       </label>
     );
   }

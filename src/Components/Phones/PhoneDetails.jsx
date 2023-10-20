@@ -26,7 +26,7 @@
           
     
 //         // Send the form data to the server
-//         fetch('http://localhost:5000/phones/addtocart', {
+//         fetch('https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/phones/addtocart', {
 //           method: 'POST',
 //           headers: {
 //             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const PhoneDetails = () => {
     // });
 
     // Send the form data to the server
-    fetch("http://localhost:5000/phones/addtocart", {
+    fetch("https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/phones/addtocart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

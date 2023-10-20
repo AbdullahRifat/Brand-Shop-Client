@@ -12,7 +12,7 @@
 
 
 //     useEffect(() => {
-//         fetch(`http://localhost:5000/brands`,{
+//         fetch(`https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/brands`,{
 //           method: 'GET',
           
 //         })
@@ -65,7 +65,7 @@ const BrandPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/brands`, {
+    fetch(`https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/brands`, {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -92,7 +92,7 @@ const BrandPage = () => {
       <Slider filteredBrands={filteredBrands} />
       {
         phonesData?.length?<Phones phonesData={phonesData} />
-        :<div className="flex justify-center items-center"><Nothing></Nothing></div>
+        :<div className="flex justify-center items-center min-h-screen"><Nothing></Nothing></div>
       }
     
     </div>

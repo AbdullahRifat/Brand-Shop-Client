@@ -37,7 +37,7 @@ const MyRouter = createBrowserRouter([
         
       path: "/mycarts",
       element: <PrivateRoute><Mycarts></Mycarts></PrivateRoute>,
-      loader: ()=>fetch("http://localhost:5000/phones/mycart/")
+      loader: ()=>fetch("https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/phones/mycart/")
     
     
     
@@ -55,7 +55,7 @@ const MyRouter = createBrowserRouter([
         
         path: "/:brands/:id",
         element: <PrivateRoute><PhoneDetails></PhoneDetails></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/brands/${params.id}`),
+        loader: ({params})=>fetch(`https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/brands/${params.id}`),
       
       
       
@@ -81,7 +81,7 @@ const MyRouter = createBrowserRouter([
       {
         path: "/update/:id",
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/brands/${params.id}`),
+        loader: ({params})=>fetch(`https://brand-shop-server-phppsd3yj-rifats-projects-4eb32e1a.vercel.app/brands/${params.id}`),
         
       }
     ]
