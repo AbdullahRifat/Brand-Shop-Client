@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Brand = ({brand}) => {
     return (
-        <div className="rounded-lg border border-base-200 bg-base-200 p-6 mx-auto flex flex-col items-center ">
+        <div className="rounded-lg border md:w-72 w-auto border-base-200 bg-base-200 p-6 mx-auto flex flex-col items-center ">
             
             <img src={brand.logo} alt={brand.name} className="h-32 w-32 mx-auto" />
             <div className="p-6">
