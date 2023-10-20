@@ -25,7 +25,8 @@ const UpdateCarts = () => {
             title: 'Product Updated Successfully',
             showConfirmButton: false,
             timer: 1500,
-          });
+          })
+          
         }
       })
       .catch((error) => {
