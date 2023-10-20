@@ -1,4 +1,4 @@
-# React + Vite
+## project: brand-shop
 # live-link : https://projects-ceec2.web.app
 
 ## Features
