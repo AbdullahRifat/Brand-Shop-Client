@@ -52,9 +52,9 @@ const Slider = ({filteredBrands}) => {
   return (
     <>
       <div ref={sliderRef} className="keen-slider">
-        <div className="keen-slider__slide number-slide1"><img className="w-full mx-auto object-cover h-1/2" src={img1} alt="" /></div>
-        <div className="keen-slider__slide number-slide2"><img className="w-full mx-auto object-cover h-1/2" src={img2} alt="" /></div>
-        <div className="keen-slider__slide number-slide3"><img className="w-full mx-auto object-cover h-1/2" src={img3} alt="" /></div>
+        <div className="keen-slider__slide number-slide1"><img className="w-full mx-auto object-cover " src={img1} alt="" /></div>
+        <div className="keen-slider__slide number-slide2"><img className="w-full mx-auto object-cover " src={img2} alt="" /></div>
+        <div className="keen-slider__slide number-slide3"><img className="w-full mx-auto object-cover " src={img3} alt="" /></div>
       </div>
     </>
   )

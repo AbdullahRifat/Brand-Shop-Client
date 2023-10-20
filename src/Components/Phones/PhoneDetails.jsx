@@ -83,32 +83,41 @@ import  { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import { Rating, RoundedStar } from "@smastrom/react-rating";
+const myStyles = {
+    itemShapes: RoundedStar,
+    activeFillColor: '#F02757',
+    inactiveFillColor: '#fecdd3'
+  }
+
+
 const PhoneDetails = () => {
-  const [newphone, setNewPhone] = useState({
-    brand: "",
-    type: "",
-    image: "",
-    name: "",
-    price: 0,
-    description: "",
-    rating: 0,
-  });
+  // const [newphone, setNewPhone] = useState({
+  //   brand: "",
+  //   type: "",
+  //   image: "",
+  //   name: "",
+  //   price: 0,
+  //   description: "",
+  //   rating: 0,
+  // });
 
   const phone = useLoaderData();
-
-  const handlecart = (phone) => {
-    setNewPhone(() => {
-      return {
+  const {brand, type, image, name, price, description, rating} = phone
+  const newphone = {brand, type, image, name, price, description, rating}
+  const handlecart = () => {
+    // setNewPhone(() => {
+    //   return {
         
-        brand: phone.brand,
-        type: phone.type,
-        image: phone.image,
-        name: phone.name,
-        price: phone.price,
-        description: phone.description,
-        rating: phone.rating,
-      };
-    });
+    //     brand: phone.brand,
+    //     type: phone.type,
+    //     image: phone.image,
+    //     name: phone.name,
+    //     price: phone.price,
+    //     description: phone.description,
+    //     rating: phone.rating,
+    //   };
+    // });
 
     // Send the form data to the server
     fetch("http://localhost:5000/phones/addtocart", {
@@ -149,7 +158,11 @@ const PhoneDetails = () => {
       <div className="hero-content flex-col lg:flex-row">
         <img src={phone.image} className="max-w-sm rounded-lg shadow-2xl" />
         <div>
-          <h1 className="text-5xl font-bold">{phone.name}</h1>
+          <h1 className="text-5xl font-bold">{phone.brand}</h1>
+          <h1 className="text-2xl font-bold">{phone.type}</h1>
+          <h1 className="text-2xl font-bold">{phone.name}</h1>
+          <Rating style={{ maxWidth: 150 }} value={parseInt(phone.rating)} itemStyles={myStyles}></Rating>
+                <div className="card-actions"></div>
           <div className="md:w-44">
             <p className="py-6">{phone.description}</p>
           </div>
