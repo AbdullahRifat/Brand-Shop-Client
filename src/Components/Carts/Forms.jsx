@@ -40,7 +40,7 @@ function Forms({ onFormSubmit,phone,show }) {
               <option value="samsung">Samsung</option>
               <option value="apple">Apple</option>
               <option value="realme">Realme</option>
-              <option value="google">Google</option>
+              <option value="google">Pixel</option>
               <option value="oneplus">OnePlus</option>
               <option value="xiaomi">Xiaomi</option>
             </select>
