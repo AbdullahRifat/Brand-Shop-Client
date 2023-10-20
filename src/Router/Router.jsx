@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register";
 import PhoneDetails from "../Components/Phones/PhoneDetails";
 import Update from "../Components/Carts/Update";
 import PrivateRoute from "../Firebase/PrivateRoute";
+import Error from "../Layout/Error";
 
 
 const MyRouter = createBrowserRouter([
@@ -16,6 +17,7 @@ const MyRouter = createBrowserRouter([
   {
     path:"/",
     element: <Mainlayouts></Mainlayouts>,
+    errorElement: <Error></Error>,
     children:[
         {
     
