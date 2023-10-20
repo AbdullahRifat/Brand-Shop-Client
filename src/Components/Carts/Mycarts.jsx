@@ -26,7 +26,7 @@ const Mycarts = () => {
         ))
          
         }
-        {cartItems.length==0?"":total}
+       <div className="font-bold text-xl"> {cartItems.length==0?"":total}</div>
         
       </div>
       
