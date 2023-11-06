@@ -30,7 +30,7 @@ const MyRouter = createBrowserRouter([
       {
         
         path: "/addcarts",
-        element: <Addcarts></Addcarts>,
+        element:<PrivateRoute> <Addcarts></Addcarts> </PrivateRoute>,
     
       
     

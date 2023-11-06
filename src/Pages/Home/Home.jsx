@@ -48,7 +48,7 @@ const Home = () => {
 
 
 
-
+    const show = false;
 
 
     const homeSlider = {
@@ -75,7 +75,7 @@ const Home = () => {
            <h2 className="text-center my-16 font-extrabold text-2xl md:text-5xl italic">TOP RATED <span    className="text-red-500">PRODUCTS</span></h2>
            <div className="grid  gap-8  md:grid-cols-2 lg:grid-cols-3 my-32">
             {
-              phonesData.map((phone,idx) => <Phone key={idx} phone={phone} ></Phone>)
+              phonesData.map((phone,idx) => <Phone key={idx} phone={phone}  show={show}></Phone>)
             }
            </div>
            </div>

@@ -9,7 +9,7 @@ const myStyles = {
   }
 
 
-const Phone = ({phone}) => {
+const Phone = ({phone,show}) => {
     const {_id,brand,name,image,rating,type,price} = phone
     return (
         <div className="card w-auto bg-base-100 shadow-xl">
@@ -24,7 +24,7 @@ const Phone = ({phone}) => {
                 <Rating style={{ maxWidth: 150 }} value={parseInt(rating)} itemStyles={myStyles}></Rating>
                 <div className="card-actions">
                   <Link to={`/${brand}/${_id}`}><button className="btn btn-primary">Details</button></Link>
-                  <Link to={`/update/${_id}`}><button className="btn btn-primary">Edit</button></Link>
+                  {show&&<Link to={`/update/${_id}`}><button className="btn btn-primary">Edit</button></Link>}
                 </div>
             </div>
         </div>

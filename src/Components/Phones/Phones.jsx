@@ -14,7 +14,7 @@ const Phones = ({phonesData}) => {
             </div>
         )
     }
-
+    const show = true
     return (
         <div className="grid mx-auto gap-4 md:grid-cols-2 lg:grid-cols-3">
             {}
@@ -26,7 +26,7 @@ const Phones = ({phonesData}) => {
                         <div key={idx}>
                          
                          <br />
-                        <Phone phone={phone}></Phone>
+                        <Phone phone={phone} show={show}></Phone>
                        </div>
                       )
                            
